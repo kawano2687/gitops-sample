@@ -1,9 +1,7 @@
-apiVersion: project.openshift.io/v1
-kind: Project
+apiVersion: v1
+kind: Namespace
 metadata:
-  labels:
-    kubernetes.io/metadata.name: openshift-opentelemetry-operator
-    openshift.io/cluster-monitoring: "true"
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
   name: openshift-opentelemetry-operator
+spec:
+  finalizers:
+  - kubernetes
