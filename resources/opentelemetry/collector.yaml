@@ -3,6 +3,8 @@ kind: OpenTelemetryCollector
 metadata:
   name: otel
   namespace: opentelemetry-demo
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   mode: deployment
   config: |
