@@ -11,7 +11,9 @@ spec:
     path: resources/opentelemetry-product
     repoURL: https://github.com/kawano2687/gitops-sample.git
     targetRevision: main
-  syncPolicy:
-    automated:
-      prune: false
-      selfHeal: true
+  ignoreDifferences:
+  - group: opentelemetry.io
+    kind: OpenTelemetryCollector
+    jqPathExpressions:
+      - .spec.config
+
