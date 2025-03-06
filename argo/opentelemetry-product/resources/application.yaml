@@ -15,3 +15,15 @@ spec:
     automated:
       prune: false
       selfHeal: true
+  ignoreDifferences:
+    - group: opentelemetry.io
+      kind: OpenTelemetryCollector
+      jsonPointers:
+        - /spec/config/receivers/jaeger/protocols/grpc/endpoint
+        - /spec/config/receivers/jaeger/protocols/thrift_binary/endpoint
+        - /spec/config/receivers/jaeger/protocols/thrift_compact/endpoint
+        - /spec/config/receivers/jaeger/protocols/thrift_http/endpoint
+        - /spec/config/receivers/otlp/protocols/grpc/endpoint
+        - /spec/config/receivers/otlp/protocols/http/endpoint
+        - /spec/config/receivers/zipkin/endpoint
+        - /spec/config/service/telemetry/metrics/address
