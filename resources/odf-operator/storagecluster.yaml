@@ -1,0 +1,30 @@
+apiVersion: ocs.openshift.io/v1
+kind: StorageCluster
+metadata:
+  annotations:
+    cluster.ocs.openshift.io/local-devices: "true"
+    uninstall.ocs.openshift.io/cleanup-policy: delete
+    uninstall.ocs.openshift.io/mode: graceful
+  name: ocs-storagecluster
+  namespace: openshift-storage
+spec:
+  encryption:
+    keyRotation:
+      schedule: '@weekly'
+  managedResources:
+    cephFilesystems:
+      dataPoolSpec:
+        application: ""
+        erasureCoded:
+          codingChunks: 0
+          dataChunks: 0
+        replicated:
+          size: 0
+    cephNonResilientPools:
+      count: 1
+    cephRBDMirror:
+      daemonCount: 1
+  multiCloudGateway:
+    dbStorageClassName: localblock
+    reconcileStrategy: standalone
+  resourceProfile: balanced
