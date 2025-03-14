@@ -9,5 +9,5 @@ spec:
   channel: stable
   installPlanApproval: Manual
   name: local-storage-operator
-  source: redhat-operators
+  source: redhat-operators # -> ミラーレジストリのCatalogSourceに変更
   sourceNamespace: openshift-marketplace
