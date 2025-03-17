@@ -2,7 +2,6 @@ apiVersion: ocs.openshift.io/v1
 kind: StorageCluster
 metadata:
   annotations:
-    cluster.ocs.openshift.io/local-devices: "true"
     uninstall.ocs.openshift.io/cleanup-policy: delete
     uninstall.ocs.openshift.io/mode: graceful
   name: ocs-storagecluster
@@ -25,6 +24,6 @@ spec:
     cephRBDMirror:
       daemonCount: 1
   multiCloudGateway:
-    dbStorageClassName: localblock
+    dbStorageClassName: gp3-csi # -> 利用するStorageClassに変更
     reconcileStrategy: standalone
   resourceProfile: balanced
